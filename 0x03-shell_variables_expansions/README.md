@@ -1,30 +1,49 @@
-# 0x002 Shell, I/O Redirections and Filters
+# 0x03 Shell, init files, variables and expansions
 
 ## Resources
 
-- LinuxCommand.Org [I/O Redirection](http://linuxcommand.org/lc3_lts0070.php).
-- BashGuide [SpecialCharacters](http://mywiki.wooledge.org/BashGuide/SpecialCharacters).
+- Shell [Expansion](http://linuxcommand.org/lc3_lts0080.php).
+- Shell [Arithmetic](https://www.gnu.org/software/bash/manual/html_node/Shell-Arithmetic.html).
+- Bash [Variable](https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_02.html).
+- Bash [Shell initialization files](https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_01.html).
+- [The alias Command](http://www.linfo.org/alias.html).
 
 ## Tasks
 
-0. [Hello World](./0-hello_world) : A script that prints `Hello, World`, followed by a new line to the standard output.
-1. [Confused smiley](./1-confused_smiley) : A script that displays a confused smiley: `"(Ôo)'`.
-2. [Let's display a file](./2-hellofile) : A script that displays the content of the `/etc/passwd` file.
-3. [What about 2?](./3-twofiles) : A scipt that displays content of `/etc/passwd` and `/etc/hosts`.
-4. [Last lines of a file](./4-lastlines) : A script that displays the last 10 lines of `/etc/passwd`.
-5. [I'd prefer the first ones actually](./5-firstlines) : A scipt that displays the first 10 lines of `etc/passwd`.
-6. [Line #2](./6-third_line) : A script that displays the third line of the file `iacta`.
-   - The file `iacta` will be in the working directory and you are not allowed to use `sed`.
-7. [It is a good file that cuts iron without making a noise](./7-file) : A script that creates a file named exactly `\*\\'"Holberton School"\'\\*$\?\*\*\*\*\*:)` containing the text `Holberton School` ending by a new line.
-   - For this challenge, remember to use a single backslash `\` to escape special characters and double backslash `\\` to escape the backslash itself.
-8. [Save current state of directory](./8-cwd_state) : A script that writes into the file `ls_cwd_content` the result of the command `ls -la`. If the file `ls_cwd_content` already exists, it should be overwritten. If the file `ls_cwd_content`does not exist, create it.
-9. [Duplicate last line](./9-duplicate_last_line) : A script that duplicates the last line of the file `iacta`.
-10. [No more javascript](./10-no_more_js) : A script that deletes all the regular files (not the directories) with a `.js` extension that are present in the current directory and all its subfolders.
-11. [Don't just count your directories, make your directories count](./11-directories) : A script that counts the number of directories and sub-directories in the current directory.
-    - The current and present directories should not be taken into account.
-    - Hidden directories should be counted.
-      - **Solution:** `mindepth 1` ; To exclude root directory
-      - **Others:** `maxdepth 1` ; To avoid parsing sub directories. (*you may need this in future.*)
-12. [Whats12's new](./12-newest_files) : A script that prints the 10 newest files in the current directory.
-    - The output should be; one file per line and sorted from the newest to the oldest.
-13. [Being unique is better than being perfect](./13-unique) : A script that takes a list of words as input and prints only words that appear exactly once.
+0. [\<o>](./0-alias) : A script that creates an alias.
+   - Name of alias: `ls`
+   - Value: `rm *` 
+1. [Hello you](./1-hello_you) : A script that prints `hello user`, where user is the current Linux user.
+2. [The path to success is to take massive, determined action](./2-path) : A script that adds `/action` to the `PATH`. `/action` should be the last directory the shell looks into when looking for a program.
+3. [If the path be beautiful, let us not ask where it leads](./3-paths) : A script that counts the number of directories in the `PATH`.
+4. [Global variables](./4-global_variables) : A script that prints all the enviroment variables.
+5. [Local variables ](./5-local_variables) : A script that lists all local variables and enviroment variables, and functions.
+   - Name of variable : `HOLBERTON`
+   - Value : `Betty`
+6. [Local variable](./6-create_local_variable) : A script that creates a new local variable.
+7. [Global variable](./7-create_global_variable) : A script that creates a new global variable.
+   - Name of variable : `HOLBERTON`
+   - Value : `Betty`
+8. [Every addition to true knowledge is an addition to human power](./8-true_knowledge) : A script that prints the results of the addition of 128 with the value stored in the enviroment variable `TRUEKNOWLEDGE`, followed by a new line.
+   - Remember to export variable TRUEKNOWLEDGE : `export TRUEKNOWLEDGE=1209`
+   - Run command this way: `./8-true_knowledge | cat -e`
+9. [Divide and rule](./9-divide_and_rule) : A script that prints the result of `POWER` divide by `DIVIDE`, followed by a new line.
+   - `POWER` and `DIVIDE` are environment variables.
+   - Variables values;
+    - export POWER=42784
+    - export DIVIDE=32
+   - Run command this way: `./9-divide_and_rule | cat -e`
+10. [Love is anterior to life, posterior to death, initial of creation, and the exponent of breath](./10-love_exponent_breath) : A script that displays the result of `BREATH` to the power of `LOVE`.
+    - `BREATH` and `LOVE` are enviroment variables.
+    - The script should display the result, followed by a new line.
+11. [There are 10 types of people in the world -- Those who understand binary, and those who don't](./11-binary_to_decimal) : A script that converts a number from base 2 to base 10.
+    - The number in base 2 is stored in the enviroment variable `BINARY`.
+    - The script should display the number in base 10, followed by a new line.
+12. [Combination](./12-combinations) : A script that prints all possible combinations of two letters, except `oo`.
+    - Letters are lower cases, from `a` to `z`.
+    - One combination per line.
+    - The output should be alpha ordered, starting with `aa`.
+    - Do not print `oo`.
+    - Your script file should contain maximum 64 characters.
+13. [Floats](./13-print_float) : A script that prints a number with two decimal places, followed by a new line.
+    - The number will be stored in the enviroment variable `NUM`.
