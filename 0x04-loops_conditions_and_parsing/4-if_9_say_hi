@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 # Using a for loop to display "Best School" 10 times with condetions
 i=0
 while [ $i -lt 10 ]
